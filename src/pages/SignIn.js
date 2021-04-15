@@ -15,13 +15,13 @@ function SignIn() {
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias cum debitis dolor dolore fuga id molestias qui quo unde?</p>
 
       <form onSubmit={handleSubmit(onSubmit)}>
-        <label htmlFor="username-field">
-          Gebruikersnaam:
+        <label htmlFor="email-field">
+          Emailadres:
           <input
-            type="text"
-            id="username-field"
-            name="username"
-            {...register("username")}
+            type="email"
+            id="email-field"
+            name="email"
+            {...register("email")}
           />
         </label>
 
