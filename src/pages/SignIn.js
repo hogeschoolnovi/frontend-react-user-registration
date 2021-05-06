@@ -6,12 +6,12 @@ import { AuthContext } from '../context/AuthContext';
 // STAPPENPLAN CONTEXT TESTEN (4)
 // - [x] Importeer de AuthContext in een component die de data zal gaan gebruiken
 // - [x] Bekijk hoe de data in de context eruit ziet doormiddel van alles = useContext(AuthContext) en console.log dit!
-// - [ ] Welke onderdelen zie je in de console?
+// - [x] Welke onderdelen zie je in de console?
 
 function SignIn() {
   const { handleSubmit, register } = useForm();
   const alles = useContext(AuthContext);
-  console.log(alles);
+  console.log(alles); // geeft een object met vier keys: login, logout, status en user
 
   function onSubmit(data) {
     console.log(data);
