@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
+import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 
 export const AuthContext = createContext({});
@@ -34,7 +35,7 @@ function AuthContextProvider({ children }) {
   //    - [x] Importeer jwt-decode
   //    - [x] Decode de token en en haal de user id eruit (die hebben we in ons geval nodig voor de gebruikersdata)
   // 4. [ ] Haal de gebruikersgegevens op
-  //    - [ ] Importeer axios
+  //    - [x] Importeer axios
   //    - [ ] Maak een aparte asynchrone functie (deze hebben we straks vaker nodig!)
   //    - [ ] Roep die functie aan vanuit de login functie
   //    - [ ] Maak een try / catch blok
