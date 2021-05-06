@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# Opdrachtbeschrijving
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Inleiding
+Tot nu waren al jouw apps openlijk toegankelijk en daar ga je nu maar eens verandering in brengen. Het is tijd om authenticatie te implementeren! Dit kun je doen met behulp van jouw eigen project, of door dit project als basis te gebruiken.
 
-## Available Scripts
+Dit project bevat vier pagina's met routing:
+* Home pagina - bereikbaar op `/`
+* Profiel pagina - bereikbaar op `/profile`
+* Registratiepagina (met daarop een react-hook-form registratieformulier) - bereikbaar op `/signup`
+* Inlog pagina (met daarop een react-hook-form inlog-formulier) - bereikbaar op `/signin`
 
-In the project directory, you can run:
+Om het gebruik van een backend te veinsen, gebruiken we een nep database server. Dit is niets meer dan een javascript projectje die zich, doormiddel van een npm package genaamd `json-server-auth`, gedraagt als een backend met REST endpoints wanneer je het project runt. 
+Je kunt deze nep-server [hier](https://github.com/hogeschoolnovi/frontend-fake-server) clonen. In de README staat beschreven hoe je de server kunt starten en welke endpoints er beschikbaar zijn.
 
-### `npm start`
+![screenshot](./src/assets/screenshot.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## De applicatie starten
+_Let op_: zorg eerst dat je de nep-server hebt draaien voor je deze applicatie start.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Als je het project gecloned hebt naar jouw locale machine, installeer je eerst de node_modules door het volgende commando in de terminal te runnen:
 
-### `npm test`
+`npm install`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Wanneer dit klaar is, kun je de applicatie starten met behulp van:
 
-### `npm run build`
+`npm start`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+of gebruik de WebStorm knop (npm start). Open http://localhost:3001 om de pagina in de browser te bekijken. Elke keer als je een bestand opslaat, zullen de wijzigingen te zien zijn op de webpagina.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Functionaliteit
+Het implementeren van authenticatie vereist de volgende stappen:
+1. Het implementeren van registratie doormiddel van het registratieformulier
+2. Het _aanmaken_ van de Context en ContextProvider
+3. Het _inrichten_ van de Context met de benodigde functies en state variabelen
+4. Het _testen_ van de Context
+5. Het implementeren van inloggen doormiddel van het inlogformulier
+6. Het implementeren van login-logica in de context
+7. Gebruikersdata uit de context gebruiken
+8. Beschermde data ophalen
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Bonus: het implementeren van uitloggen en het afschermen van routes kun je zelf maken!
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Uitgewerkte stappenplannen en antwoordbranches
+Het is mogelijk om onderstaande stappenplannen te volgen, maar het is uitdagender om je eigen stappenplan te maken!
