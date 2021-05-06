@@ -9,7 +9,7 @@ import { useForm } from 'react-hook-form';
 // - [x] Maak een asynchrone functie
 // - [x] Maak een try / catch blok
 // - [x] In de try: maak een POST request naar het eindpoint: http://localhost:3000/register
-// - [ ] Een POST request krijgt altijd de url en het data object mee (in dit geval minimaal email en wachtwoord)
+// - [x] Een POST request krijgt altijd de url en het data object mee (in dit geval minimaal email en wachtwoord)
 // - [ ] Laat de gebruiker weten dat het registeren is gelukt
 // - [ ] Stuur de gebruiker na twee seconden door naar het inlog-formulier
 // - [ ] Puntjes op de i: error en laad-tijden inplemententeren
@@ -21,7 +21,16 @@ function SignUp() {
     console.log(data);
 
     try {
-      const result = await axios.post();
+      const result = await axios.post('http://localhost:3000/register', {
+        email: data.email,
+        password: data.password,
+        country: 'Nederland',
+        username: data.username,
+      });
+
+      // als deze console.log wordt uitgevoerd is alles goedgegaan, want we zijn niet naar het catch blok gesprongen
+      // in de console zie je de gebruikelijke respons en daarin ook 'status: 201'
+      console.log(result);
     } catch(e) {
       console.error(e);
     }
