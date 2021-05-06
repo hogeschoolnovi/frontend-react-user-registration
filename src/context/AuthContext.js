@@ -54,7 +54,7 @@ function AuthContextProvider({ children }) {
 
   async function fetchUserData(token, id) {
     try {
-
+      const result = await axios.get();
     } catch(e) {
       console.error(e);
     }
