@@ -7,7 +7,7 @@ export const AuthContext = createContext({});
 // - [x] Maak de lege functies voor login en logOut
 // - [x] Maak de state aan voor de gebruikersdata en de statusdata (user => null en status => 'pending')
 // - [x] Maak ook alvast een useEffect functie die de status op 'done' zet als de app gerefreshed wordt (mounting cycle)
-// - [ ] Zorg ervoor dat we alleen de applicatie (dus de children) laten zien als de status op 'done' staat
+// - [x] Zorg ervoor dat we alleen de applicatie (dus de children) laten zien als de status op 'done' staat
 // - [ ] Plaats de state en lege functies in het data object
 
 function AuthContextProvider({ children }) {
@@ -38,7 +38,10 @@ function AuthContextProvider({ children }) {
 
   return (
     <AuthContext.Provider value={data}>
-      { children }
+      {authState.status === 'pending'
+        ? <p>Loading...</p>
+        : children
+      }
     </AuthContext.Provider>
   );
 }
