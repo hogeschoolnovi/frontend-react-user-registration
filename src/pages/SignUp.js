@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 // STAPPENPLAN REGISTREREN (1)
@@ -11,11 +11,13 @@ import { useForm } from 'react-hook-form';
 // - [x] In de try: maak een POST request naar het eindpoint: http://localhost:3000/register
 // - [x] Een POST request krijgt altijd de url en het data object mee (in dit geval minimaal email en wachtwoord)
 // - [x] Laat de gebruiker weten dat het registeren is gelukt
-// - [ ] Stuur de gebruiker na twee seconden door naar het inlog-formulier
+// - [x] Stuur de gebruiker na twee seconden door naar het inlog-formulier
 // - [ ] Puntjes op de i: error en laad-tijden inplemententeren
 
 function SignUp() {
   const [registerSuccess, toggleRegisterSuccess] = useState(false);
+
+  const history = useHistory();
   const { handleSubmit, register } = useForm();
 
   async function onSubmit(data) {
@@ -34,6 +36,11 @@ function SignUp() {
       console.log(result);
 
       toggleRegisterSuccess(true);
+
+      // we willen even wachten met doorlinken zodat de gebruiker de tijd heeft om de succesmelding ook daadwerkelijk te zien
+      setTimeout(() => {
+        history.push('/signin');
+      }, 2000);
     } catch(e) {
       console.error(e);
     }
