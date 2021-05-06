@@ -2,6 +2,14 @@ import React, { createContext } from 'react';
 
 export const AuthContext = createContext({});
 
+// STAPPENPLAN CONTEXT INRICHTEN (3)
+// - [ ] Bedenk welke data je in de context beschikbaar moet stellen
+// - [ ] Maak de lege functies voor login en logOut
+// - [ ] Maak de state aan voor de gebruikersdata en de statusdata (user => null en status => 'pending')
+// - [ ] Maak ook alvast een useEffect functie die de status op 'done' zet als de app gerefreshed wordt (mounting cycle)
+// - [ ] Zorg ervoor dat we alleen de applicatie (dus de children) laten zien als de status op 'done' staat
+// - [ ] Plaats de state en lege functies in het data object
+
 function AuthContextProvider({ children }) {
   const data = {};
 
