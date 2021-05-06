@@ -38,7 +38,7 @@ Het implementeren van authenticatie vereist de volgende stappen:
 7. Gebruikersdata uit de context gebruiken
 8. Beschermde data ophalen
 
-Bonus: het implementeren van uitloggen en het afschermen van routes kun je zelf maken!
+**Bonus**: het implementeren van uitloggen en het afschermen van routes kun je zelf maken!
 
 ## Uitgewerkte stappenplannen en antwoordbranches
 Het is mogelijk om onderstaande stappenplannen te volgen, maar het is uitdagender om je eigen stappenplan te maken!
