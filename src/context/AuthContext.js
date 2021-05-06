@@ -1,6 +1,7 @@
 import React, { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
+import { useHistory } from 'react-router-dom';
 
 export const AuthContext = createContext({});
 
@@ -18,6 +19,8 @@ function AuthContextProvider({ children }) {
     status: 'pending',
   })
 
+  const history = useHistory();
+
   useEffect(() => {
     // hier gaan we later checken of er toevallig nog een ingelogde gebruiker is, zodat we opnieuw gegevens kunnen ophalen
     // maar voor doen we dat niet, dus zetten we de status op 'done'
@@ -34,14 +37,14 @@ function AuthContextProvider({ children }) {
   //    - [x] Installeer jwt-decode
   //    - [x] Importeer jwt-decode
   //    - [x] Decode de token en en haal de user id eruit (die hebben we in ons geval nodig voor de gebruikersdata)
-  // 4. [ ] Haal de gebruikersgegevens op
+  // 4. [x] Haal de gebruikersgegevens op
   //    - [x] Importeer axios
   //    - [x] Maak een aparte asynchrone functie (deze hebben we straks vaker nodig!)
   //    - [x] Roep die functie aan vanuit de login functie
   //    - [x] Maak een try / catch blok
   //    - [x] In de try: maak een axios GET request naar het eindpoint http://localhost:3000/600/users/${id} en stuur de token mee
-  //    - [ ] De data die we terugkrijgen zetten we in de state, en daarmee ook in de context (user: al die data en status: 'done')
-  //    - [ ] Link gebruiker door naar de profielpagina
+  //    - [x] De data die we terugkrijgen zetten we in de state, en daarmee ook in de context (user: al die data en status: 'done')
+  //    - [x] Link gebruiker door naar de profielpagina
 
   function login(jwtToken) {
     console.log(jwtToken)
@@ -61,6 +64,20 @@ function AuthContextProvider({ children }) {
           Authorization: `Bearer ${token}`,
         }
       });
+      console.log(result);
+
+      setAuthState({
+        user: {
+          username: result.data.username,
+          email: result.data.email,
+          id: result.data.id,
+          country: result.data.country,
+          // als je ook rollen hebt, plaats je die er ook bij!
+        },
+        status: 'done',
+      });
+
+      history.push('/profile');
     } catch(e) {
       console.error(e);
     }
