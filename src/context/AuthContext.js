@@ -36,9 +36,9 @@ function AuthContextProvider({ children }) {
   //    - [x] Decode de token en en haal de user id eruit (die hebben we in ons geval nodig voor de gebruikersdata)
   // 4. [ ] Haal de gebruikersgegevens op
   //    - [x] Importeer axios
-  //    - [ ] Maak een aparte asynchrone functie (deze hebben we straks vaker nodig!)
+  //    - [x] Maak een aparte asynchrone functie (deze hebben we straks vaker nodig!)
   //    - [ ] Roep die functie aan vanuit de login functie
-  //    - [ ] Maak een try / catch blok
+  //    - [x] Maak een try / catch blok
   //    - [ ] In de try: maak een axios GET request naar het eindpoint http://localhost:3000/600/users/${id} en stuur de token mee
   //    - [ ] De data die we terugkrijgen zetten we in de state, en daarmee ook in de context (user: al die data en status: 'done')
   //    - [ ] Link gebruiker door naar de profielpagina
@@ -48,6 +48,14 @@ function AuthContextProvider({ children }) {
     const decodedToken = jwt_decode(jwtToken);
     console.log(decodedToken);
     const userId = decodedToken.sub;
+  }
+
+  async function fetchUserData() {
+    try {
+
+    } catch(e) {
+      console.error(e);
+    }
   }
 
   function logout() {
