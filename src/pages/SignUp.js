@@ -2,6 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
+// STAPPENPLAN REGISTREREN (1)
+// - [ ] Installeer axios
+// - [ ] Importeer axios
+// - [ ] Maak een asynchrone functie
+// - [ ] Maak een try / catch blok
+// - [ ] In de try: maak een POST request naar het eindpoint: http://localhost:3000/register
+// - [ ] Een POST request krijgt altijd de url en het data object mee (in dit geval minimaal email en wachtwoord)
+// - [ ] Laat de gebruiker weten dat het registeren is gelukt
+// - [ ] Stuur de gebruiker na twee seconden door naar het inlog-formulier
+// - [ ] Puntjes op de i: error en laad-tijden inplemententeren
+
 function SignUp() {
   const { handleSubmit, register } = useForm();
 
