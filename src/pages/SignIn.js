@@ -2,6 +2,11 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 
+// STAPPENPLAN CONTEXT TESTEN (4)
+// - [ ] Importeer de AuthContext in een component die de data zal gaan gebruiken
+// - [ ] Bekijk hoe de data in de context eruit ziet doormiddel van alles = useContext(AuthContext) en console.log dit!
+// - [ ] Welke onderdelen zie je in de console?
+
 function SignIn() {
   const { handleSubmit, register } = useForm();
 
