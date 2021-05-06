@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
+import jwt_decode from 'jwt-decode';
 
 export const AuthContext = createContext({});
 
@@ -28,10 +29,10 @@ function AuthContextProvider({ children }) {
   // STAPPENPLAN CONTEXT LOGIN LOGICA (6)
   // 1. [x] Zorg ervoor dat de inlogfunctie uit de context de JWT token kan ontvangen
   // 2. [x] Zet de token in de local storage
-  // 3. [ ] Haal alle belangrijke informatie uit de token (dit is voor iedere situatie anders! Sommige backends sturen direct de gebruikersdata mee terug!)
-  //    - [ ] Installeer jwt-decode
-  //    - [ ] Importeer jwt-decode
-  //    - [ ] Decode de token en en haal de user id eruit (die hebben we in ons geval nodig voor de gebruikersdata)
+  // 3. [x] Haal alle belangrijke informatie uit de token (dit is voor iedere situatie anders! Sommige backends sturen direct de gebruikersdata mee terug!)
+  //    - [x] Installeer jwt-decode
+  //    - [x] Importeer jwt-decode
+  //    - [x] Decode de token en en haal de user id eruit (die hebben we in ons geval nodig voor de gebruikersdata)
   // 4. [ ] Haal de gebruikersgegevens op
   //    - [ ] Importeer axios
   //    - [ ] Maak een aparte asynchrone functie (deze hebben we straks vaker nodig!)
@@ -43,6 +44,9 @@ function AuthContextProvider({ children }) {
 
   function login(jwtToken) {
     localStorage.setItem('token', jwtToken);
+    const decodedToken = jwt_decode(jwtToken);
+    console.log(decodedToken);
+    const userId = decodedToken.sub;
   }
 
   function logout() {
