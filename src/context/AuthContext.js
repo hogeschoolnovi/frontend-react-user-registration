@@ -1,6 +1,10 @@
+import React, { createContext } from 'react';
+
+const AuthContext = createContext({});
+
 // STAPPENPLAN CONTEXT KLAARZETTEN (2)
 // 0. [x] AuthContext.js bestand aanmaken
-// 1. [ ] AuthContext maken met createContext
+// 1. [x] AuthContext maken met createContext
 // 2. [ ] AuthContextProvider functie component bouwen met daarin:
 //    - [ ] Het echte AuthContext.Provider component
 //    - [ ] Een leeg data object
