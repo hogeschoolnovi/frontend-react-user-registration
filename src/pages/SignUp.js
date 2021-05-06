@@ -6,8 +6,8 @@ import { useForm } from 'react-hook-form';
 // STAPPENPLAN REGISTREREN (1)
 // - [x] Installeer axios
 // - [x] Importeer axios
-// - [ ] Maak een asynchrone functie
-// - [ ] Maak een try / catch blok
+// - [x] Maak een asynchrone functie
+// - [x] Maak een try / catch blok
 // - [ ] In de try: maak een POST request naar het eindpoint: http://localhost:3000/register
 // - [ ] Een POST request krijgt altijd de url en het data object mee (in dit geval minimaal email en wachtwoord)
 // - [ ] Laat de gebruiker weten dat het registeren is gelukt
@@ -17,8 +17,14 @@ import { useForm } from 'react-hook-form';
 function SignUp() {
   const { handleSubmit, register } = useForm();
 
-  function onSubmit(data) {
+  async function onSubmit(data) {
     console.log(data);
+
+    try {
+
+    } catch(e) {
+      console.error(e);
+    }
   }
 
   return (
