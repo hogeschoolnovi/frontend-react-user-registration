@@ -8,7 +8,7 @@ import { useForm } from 'react-hook-form';
 // - [x] Importeer axios
 // - [x] Maak een asynchrone functie
 // - [x] Maak een try / catch blok
-// - [ ] In de try: maak een POST request naar het eindpoint: http://localhost:3000/register
+// - [x] In de try: maak een POST request naar het eindpoint: http://localhost:3000/register
 // - [ ] Een POST request krijgt altijd de url en het data object mee (in dit geval minimaal email en wachtwoord)
 // - [ ] Laat de gebruiker weten dat het registeren is gelukt
 // - [ ] Stuur de gebruiker na twee seconden door naar het inlog-formulier
@@ -21,7 +21,7 @@ function SignUp() {
     console.log(data);
 
     try {
-
+      const result = await axios.post();
     } catch(e) {
       console.error(e);
     }
