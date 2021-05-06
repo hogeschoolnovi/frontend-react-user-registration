@@ -23,4 +23,4 @@ export default AuthContextProvider;
 //    - [x] Een leeg data object
 // 3. [x] Geef het data object mee via de value={} property in de .Provider
 // 4. [x] Exporteer zowel de Context als het zelfgemaakte Provider component
-// 5. [ ] Importeer het zelfgemaakte Provider component in index.js en wikkel deze om <App> heen
+// 5. [x] Importeer het zelfgemaakte Provider component in index.js en wikkel deze om <App> heen
