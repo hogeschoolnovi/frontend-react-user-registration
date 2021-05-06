@@ -12,6 +12,8 @@ Dit project bevat vier pagina's met routing:
 Om het gebruik van een backend te veinsen, gebruiken we een nep database server. Dit is niets meer dan een javascript projectje die zich, doormiddel van een npm package genaamd `json-server-auth`, gedraagt als een backend met REST endpoints wanneer je het project runt. 
 Je kunt deze nep-server [hier](https://github.com/hogeschoolnovi/frontend-fake-server) clonen. In de README staat beschreven hoe je de server kunt starten en welke endpoints er beschikbaar zijn.
 
+![screenshot](./src/assets/screenshot.png)
+
 ## De applicatie starten
 _Let op_: zorg eerst dat je de nep-server hebt draaien voor je deze applicatie start.
 
