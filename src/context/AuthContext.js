@@ -39,11 +39,12 @@ function AuthContextProvider({ children }) {
   //    - [x] Maak een aparte asynchrone functie (deze hebben we straks vaker nodig!)
   //    - [x] Roep die functie aan vanuit de login functie
   //    - [x] Maak een try / catch blok
-  //    - [ ] In de try: maak een axios GET request naar het eindpoint http://localhost:3000/600/users/${id} en stuur de token mee
+  //    - [x] In de try: maak een axios GET request naar het eindpoint http://localhost:3000/600/users/${id} en stuur de token mee
   //    - [ ] De data die we terugkrijgen zetten we in de state, en daarmee ook in de context (user: al die data en status: 'done')
   //    - [ ] Link gebruiker door naar de profielpagina
 
   function login(jwtToken) {
+    console.log(jwtToken)
     localStorage.setItem('token', jwtToken);
     const decodedToken = jwt_decode(jwtToken);
     console.log(decodedToken);
@@ -54,7 +55,12 @@ function AuthContextProvider({ children }) {
 
   async function fetchUserData(token, id) {
     try {
-      const result = await axios.get();
+      const result = await axios.get(`http://localhost:3000/600/users/${id}`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        }
+      });
     } catch(e) {
       console.error(e);
     }
