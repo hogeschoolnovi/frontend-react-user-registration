@@ -5,11 +5,15 @@ function Profile() {
   return (
     <>
       <h1>Profielpagina</h1>
-      <h2>Gegevens</h2>
-      <p><strong>Gebruikersnaam:</strong> novaeeken</p>
-      <p><strong>Email:</strong> nova@gmail.com</p>
-      <h2>Afgeschermde content voor ingelogde gebruikers</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias cum debitis dolor dolore fuga id molestias qui quo unde?</p>
+      <section>
+        <h2>Gegevens</h2>
+        <p><strong>Gebruikersnaam:</strong> hardcoded-test</p>
+        <p><strong>Email:</strong> hardcoded@test.com</p>
+      </section>
+      <section>
+        <h2>Afgeschermde content voor ingelogde gebruikers</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias cum debitis dolor dolore fuga id molestias qui quo unde?</p>
+      </section>
       <p>Terug naar de <Link to="/">Homepagina</Link></p>
     </>
   );
