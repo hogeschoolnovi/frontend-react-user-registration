@@ -12,9 +12,10 @@ import { useForm } from 'react-hook-form';
 // - [x] Een POST request krijgt altijd de url en het data object mee (in dit geval minimaal email en wachtwoord)
 // - [x] Laat de gebruiker weten dat het registeren is gelukt
 // - [x] Stuur de gebruiker na twee seconden door naar het inlog-formulier
-// - [ ] Puntjes op de i: error en laad-tijden inplemententeren
+// - [x] Puntjes op de i: error en laad-tijden inplemententeren
 
 function SignUp() {
+  const [loading, toggleLoading] = useState(false);
   const [error, setError] = useState('');
   const [registerSuccess, toggleRegisterSuccess] = useState(false);
 
@@ -24,6 +25,7 @@ function SignUp() {
   async function onSubmit(data) {
     // omdat onSubmit meerdere keren kan worden aangeroepen, beginnen we altijd met een "schone" lei (geen errors)
     setError('');
+    toggleLoading(true);
 
     console.log(data);
 
@@ -53,6 +55,8 @@ function SignUp() {
       // TIP: Wanneer er echt iets fout gaat, krijg je een 404 error. Wanneer de gebruikersnaam al bestond,
       // krijg je waarschijnlijk een 400 error.Zo kun je hier ook nog invloed uitoefenen op welke error message je laat zien op de gebruiker!
     }
+
+    toggleLoading(false);
   }
 
   return (
@@ -92,8 +96,9 @@ function SignUp() {
         <button
           type="submit"
           className="form-button"
+          disabled={loading}
         >
-          Maak account aan
+          {loading ? 'Versturen...' : 'Maak account aan'}
         </button>
         {registerSuccess === true &&  <p>Registeren is gelukt! Je wordt nu doorgestuurd naar de inlog pagina!</p>}
         {error && <p className="error-message">{error}</p>}
