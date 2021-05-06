@@ -11,8 +11,8 @@ import { AuthContext } from '../context/AuthContext';
 
 // STAPPENPLAN INLOGGEN (5)
 // - [x] Importeer axios
-// - [ ] Maak een asynchrone functie
-// - [ ] Maak een try / catch blok
+// - [x] Maak een asynchrone functie
+// - [x] Maak een try / catch blok
 // - [ ] In de try: maak een POST request naar het eindpoint: http://localhost:3000/login
 // - [ ] Een POST request krijgt altijd de url en het data object mee (in dit geval alleen email en wachtwoord)
 // - [ ] Bekijk de response. Als het succesvol was, dan:
@@ -28,8 +28,13 @@ function SignIn() {
   const alles = useContext(AuthContext);
   console.log(alles); // geeft een object met vier keys: login, logout, status en user
 
-  function onSubmit(data) {
+  async function onSubmit(data) {
     console.log(data);
+    try {
+
+    } catch(e) {
+      console.error(e);
+    }
   }
 
   return (
