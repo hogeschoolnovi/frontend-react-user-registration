@@ -6,7 +6,7 @@ function AuthContextProvider({ children }) {
   const data = {};
 
   return (
-    <AuthContext.Provider>
+    <AuthContext.Provider value={data}>
       { children }
     </AuthContext.Provider>
   );
@@ -19,6 +19,6 @@ function AuthContextProvider({ children }) {
 //    - [x] De property children
 //    - [x] Het echte AuthContext.Provider component
 //    - [x] Een leeg data object
-// 3. [ ] Geef het data object mee via de value={} property in de .Provider
+// 3. [x] Geef het data object mee via de value={} property in de .Provider
 // 4. [ ] Exporteer zowel de Context als het zelfgemaakte Provider component
 // 5. [ ] Importeer het zelfgemaakte Provider component in index.js en wikkel deze om <App> heen
