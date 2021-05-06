@@ -19,7 +19,7 @@ import { AuthContext } from '../context/AuthContext';
 // - [x] Moet de JWT worden doorgegeven aan de context vanuit hier:
 //    - [x] Importeeer useContext en AuthContext
 //    - [x] Destructure daar de login functie uit
-//    - [ ] Roep deze functie aan als het inloggen succesvol was en geef de JWT token daaraan mee
+//    - [x] Roep deze functie aan als het inloggen succesvol was en geef de JWT token daaraan mee
 // - Wanneer alles in de context goed gaat, zullen we ook vanuit daar de gebruiker doorlinken naar de profielpagina.
 // - Puntjes op de i: error en laad-tijden inplemententeren (maar dit kun je inmiddels zelf!)
 
@@ -33,6 +33,7 @@ function SignIn() {
     try {
       const result = await axios.post('http://localhost:3000/login', data);
       console.log(result);
+      login(result.data.accessToken);
     } catch(e) {
       console.error(e);
     }
