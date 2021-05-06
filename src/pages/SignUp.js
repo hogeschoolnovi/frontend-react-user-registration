@@ -1,10 +1,11 @@
 import React from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 // STAPPENPLAN REGISTREREN (1)
-// - [ ] Installeer axios
-// - [ ] Importeer axios
+// - [x] Installeer axios
+// - [x] Importeer axios
 // - [ ] Maak een asynchrone functie
 // - [ ] Maak een try / catch blok
 // - [ ] In de try: maak een POST request naar het eindpoint: http://localhost:3000/register
