@@ -15,12 +15,16 @@ import { useForm } from 'react-hook-form';
 // - [ ] Puntjes op de i: error en laad-tijden inplemententeren
 
 function SignUp() {
+  const [error, setError] = useState('');
   const [registerSuccess, toggleRegisterSuccess] = useState(false);
 
   const history = useHistory();
   const { handleSubmit, register } = useForm();
 
   async function onSubmit(data) {
+    // omdat onSubmit meerdere keren kan worden aangeroepen, beginnen we altijd met een "schone" lei (geen errors)
+    setError('');
+
     console.log(data);
 
     try {
@@ -43,6 +47,11 @@ function SignUp() {
       }, 2000);
     } catch(e) {
       console.error(e);
+      // op het error (e) object zit altijd een message property, maar die kan wat abstract zijn. Daarom extra text:
+      setError(`Het registeren is mislukt. Probeer het opnieuw (${e.message})`);
+
+      // TIP: Wanneer er echt iets fout gaat, krijg je een 404 error. Wanneer de gebruikersnaam al bestond,
+      // krijg je waarschijnlijk een 400 error.Zo kun je hier ook nog invloed uitoefenen op welke error message je laat zien op de gebruiker!
     }
   }
 
@@ -87,6 +96,7 @@ function SignUp() {
           Maak account aan
         </button>
         {registerSuccess === true &&  <p>Registeren is gelukt! Je wordt nu doorgestuurd naar de inlog pagina!</p>}
+        {error && <p className="error-message">{error}</p>}
       </form>
       <p>Heb je al een account? Je kunt je <Link to="/signin">hier</Link> inloggen.</p>
     </>
