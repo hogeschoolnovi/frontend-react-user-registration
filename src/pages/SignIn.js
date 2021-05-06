@@ -14,8 +14,8 @@ import { AuthContext } from '../context/AuthContext';
 // - [x] Maak een asynchrone functie
 // - [x] Maak een try / catch blok
 // - [x] In de try: maak een POST request naar het eindpoint: http://localhost:3000/login
-// - [ ] Een POST request krijgt altijd de url en het data object mee (in dit geval alleen email en wachtwoord)
-// - [ ] Bekijk de response. Als het succesvol was, dan:
+// - [x] Een POST request krijgt altijd de url en het data object mee (in dit geval alleen email en wachtwoord)
+// - [x] Bekijk de response. Als het succesvol was, dan:
 // - [ ] Moet de JWT worden doorgegeven aan de context vanuit hier:
 //    - [ ] Importeeer useContext en AuthContext
 //    - [ ] Destructure daar de login functie uit
@@ -30,8 +30,10 @@ function SignIn() {
 
   async function onSubmit(data) {
     console.log(data);
+
     try {
-      const result = await axios.post();
+      const result = await axios.post('http://localhost:3000/login', data);
+      console.log(result);
     } catch(e) {
       console.error(e);
     }
