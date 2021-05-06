@@ -26,7 +26,7 @@ function AuthContextProvider({ children }) {
   }, []);
 
   // STAPPENPLAN CONTEXT LOGIN LOGICA (6)
-  // 1. [ ] Zorg ervoor dat de inlogfunctie uit de context de JWT token kan ontvangen
+  // 1. [x] Zorg ervoor dat de inlogfunctie uit de context de JWT token kan ontvangen
   // 2. [ ] Zet de token in de local storage
   // 3. [ ] Haal alle belangrijke informatie uit de token (dit is voor iedere situatie anders! Sommige backends sturen direct de gebruikersdata mee terug!)
   //    - [ ] Installeer jwt-decode
@@ -41,7 +41,7 @@ function AuthContextProvider({ children }) {
   //    - [ ] De data die we terugkrijgen zetten we in de state, en daarmee ook in de context (user: al die data en status: 'done')
   //    - [ ] Link gebruiker door naar de profielpagina
 
-  function login() {
+  function login(jwtToken) {
     console.log('login!');
   }
 
