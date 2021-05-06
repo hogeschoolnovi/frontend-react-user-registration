@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
@@ -9,7 +10,7 @@ import { AuthContext } from '../context/AuthContext';
 // - [x] Welke onderdelen zie je in de console?
 
 // STAPPENPLAN INLOGGEN (5)
-// - [ ] Importeer axios
+// - [x] Importeer axios
 // - [ ] Maak een asynchrone functie
 // - [ ] Maak een try / catch blok
 // - [ ] In de try: maak een POST request naar het eindpoint: http://localhost:3000/login
