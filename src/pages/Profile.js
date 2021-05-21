@@ -17,7 +17,7 @@ import { AuthContext } from '../context/AuthContext';
 // - [ ] Om data op te halen hebben we een asynchrone functie nodig, dus:
 //    - [x] Importeer axios
 //    - [x] Maak een asynchrone functie in de useEffect en roep hem ook direct aan
-//    - [ ] Maak een try / catch blok
+//    - [x] Maak een try / catch blok
 //    - [ ] Om beschermde data op te halen hebben we de token nodig! Haal 'm uit de local storage
 //    - [ ] In de try: maak een GET request naar het beveiligde eindpoint: http://localhost:3000/660/private-content
 //    - [ ] Een GET request krijgt altijd de url en het config object mee (waarin je request headers - de token! - meegeeft)
@@ -33,9 +33,13 @@ function Profile() {
 
   useEffect(() => {
     async function getPrivateContent() {
-      console.log('Ik word aangeroepen!');
+      try {
+
+      } catch(e) {
+        console.error(e);
+      }
     }
-    
+
     getPrivateContent();
   }, []);
 
