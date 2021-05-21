@@ -1,6 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// STAPPENPLAN GEBRUIKERSDATA UIT CONTEXT HALEN (7)
+// - [ ] Importeeer de useContext functie en AuthContext
+// - [ ] Destucture daar het user object uit
+// - [ ] Log het user object
+// - [ ] Als er data is, geef die dan weer op de pagina (dus inclusief impliciete check!)
+
 function Profile() {
   return (
     <>
