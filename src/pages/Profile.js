@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import { AuthContext } from '../context/AuthContext';
 
 // STAPPENPLAN GEBRUIKERSDATA UIT CONTEXT HALEN (7)
@@ -14,8 +15,8 @@ import { AuthContext } from '../context/AuthContext';
 //    - [x] Importeer useEffect
 //    - [x] Schrijf de useEffect functie en geef de lege dependency array mee
 // - [ ] Om data op te halen hebben we een asynchrone functie nodig, dus:
-//    - [ ] Importeer axios
-//    - [ ] Maak een asynchrone functie in de useEffect en roep hem ook direct aan
+//    - [x] Importeer axios
+//    - [x] Maak een asynchrone functie in de useEffect en roep hem ook direct aan
 //    - [ ] Maak een try / catch blok
 //    - [ ] Om beschermde data op te halen hebben we de token nodig! Haal 'm uit de local storage
 //    - [ ] In de try: maak een GET request naar het beveiligde eindpoint: http://localhost:3000/660/private-content
@@ -31,7 +32,11 @@ function Profile() {
   console.log(user); // geeft { user: { username: 'string waarde', email: 'string waarde', id: 'string waarde', country: 'string waarde' }
 
   useEffect(() => {
-    console.log('Ik word aangeroepen!');
+    async function getPrivateContent() {
+      console.log('Ik word aangeroepen!');
+    }
+    
+    getPrivateContent();
   }, []);
 
   return (
