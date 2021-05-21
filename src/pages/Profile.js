@@ -22,7 +22,7 @@ import { AuthContext } from '../context/AuthContext';
 //    - [x] In de try: maak een GET request naar het beveiligde eindpoint: http://localhost:3000/660/private-content
 //    - [x] Een GET request krijgt altijd de url en het config object mee (waarin je request headers - de token! - meegeeft)
 //    - [x] Bekijk de response. Als het succesvol was, plaats dan de response in de state
-// - [ ] Geef de data weer op de pagina (inclusief impliciete check!)
+// - [x] Geef de data weer op de pagina (inclusief impliciete check!)
 // - Puntjes op de i: error en laad-tijden inplemententeren (maar dit kun je inmiddels zelf!)
 
 function Profile() {
@@ -65,10 +65,13 @@ function Profile() {
           </>
         }
       </section>
-      <section>
-        <h2>Afgeschermde content voor ingelogde gebruikers</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias cum debitis dolor dolore fuga id molestias qui quo unde?</p>
-      </section>
+      {privateContent &&
+        <section>
+          <h2>Afgeschermde content voor ingelogde gebruikers</h2>
+          <h4>{privateContent.title}</h4>
+          <p>{privateContent.content}</p>
+        </section>
+      }
       <p>Terug naar de <Link to="/">Homepagina</Link></p>
     </>
   );
