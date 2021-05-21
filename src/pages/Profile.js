@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 
@@ -10,9 +10,9 @@ import { AuthContext } from '../context/AuthContext';
 
 // STAPPENPLAN BESCHERMDE DATA OPHALEN (8)
 // - [x] Om de data straks ergens op te slaan hebben we state nodig, dus maak een een stukje state aan
-// - [ ] De data moet worden opgehaald zodra de pagina geladen is, dus hier hebben we useEffect voor nodig:
-//    - [ ] Importeer useEffect
-//    - [ ] Schrijf de useEffect functie en geef de lege dependency array mee
+// - [x] De data moet worden opgehaald zodra de pagina geladen is, dus hier hebben we useEffect voor nodig:
+//    - [x] Importeer useEffect
+//    - [x] Schrijf de useEffect functie en geef de lege dependency array mee
 // - [ ] Om data op te halen hebben we een asynchrone functie nodig, dus:
 //    - [ ] Importeer axios
 //    - [ ] Maak een asynchrone functie in de useEffect en roep hem ook direct aan
@@ -29,6 +29,10 @@ function Profile() {
 
   const { user } = useContext(AuthContext);
   console.log(user); // geeft { user: { username: 'string waarde', email: 'string waarde', id: 'string waarde', country: 'string waarde' }
+
+  useEffect(() => {
+    console.log('Ik word aangeroepen!');
+  }, []);
 
   return (
     <>
