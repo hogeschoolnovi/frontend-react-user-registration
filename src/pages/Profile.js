@@ -18,7 +18,7 @@ import { AuthContext } from '../context/AuthContext';
 //    - [x] Importeer axios
 //    - [x] Maak een asynchrone functie in de useEffect en roep hem ook direct aan
 //    - [x] Maak een try / catch blok
-//    - [ ] Om beschermde data op te halen hebben we de token nodig! Haal 'm uit de local storage
+//    - [x] Om beschermde data op te halen hebben we de token nodig! Haal 'm uit de local storage
 //    - [ ] In de try: maak een GET request naar het beveiligde eindpoint: http://localhost:3000/660/private-content
 //    - [ ] Een GET request krijgt altijd de url en het config object mee (waarin je request headers - de token! - meegeeft)
 //    - [ ] Bekijk de response. Als het succesvol was, plaats dan de response in de state
@@ -32,6 +32,9 @@ function Profile() {
   console.log(user); // geeft { user: { username: 'string waarde', email: 'string waarde', id: 'string waarde', country: 'string waarde' }
 
   useEffect(() => {
+    const token = localStorage.getItem('token');
+    console.log('DE TOKEN IS:', token);
+    
     async function getPrivateContent() {
       try {
 
