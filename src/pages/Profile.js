@@ -8,6 +8,22 @@ import { AuthContext } from '../context/AuthContext';
 // - [x] Log het user object
 // - [x] Als er data is, geef die dan weer op de pagina (dus inclusief impliciete check!)
 
+// STAPPENPLAN BESCHERMDE DATA OPHALEN (8)
+// - [ ] Om de data straks ergens op te slaan hebben we state nodig, dus maak een een stukje state aan
+// - [ ] De data moet worden opgehaald zodra de pagina geladen is, dus hier hebben we useEffect voor nodig:
+//    - [ ] Importeer useEffect
+//    - [ ] Schrijf de useEffect functie en geef de lege dependency array mee
+// - [ ] Om data op te halen hebben we een asynchrone functie nodig, dus:
+//    - [ ] Importeer axios
+//    - [ ] Maak een asynchrone functie in de useEffect en roep hem ook direct aan
+//    - [ ] Maak een try / catch blok
+//    - [ ] Om beschermde data op te halen hebben we de token nodig! Haal 'm uit de local storage
+//    - [ ] In de try: maak een GET request naar het beveiligde eindpoint: http://localhost:3000/660/private-content
+//    - [ ] Een GET request krijgt altijd de url en het config object mee (waarin je request headers - de token! - meegeeft)
+//    - [ ] Bekijk de response. Als het succesvol was, plaats dan de response in de state
+// - [ ] Geef de data weer op de pagina (inclusief impliciete check!)
+// - Puntjes op de i: error en laad-tijden inplemententeren (maar dit kun je inmiddels zelf!)
+
 function Profile() {
   const { user } = useContext(AuthContext);
   console.log(user); // geeft { user: { username: 'string waarde', email: 'string waarde', id: 'string waarde', country: 'string waarde' }
