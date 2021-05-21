@@ -21,7 +21,7 @@ import { AuthContext } from '../context/AuthContext';
 //    - [x] Om beschermde data op te halen hebben we de token nodig! Haal 'm uit de local storage
 //    - [x] In de try: maak een GET request naar het beveiligde eindpoint: http://localhost:3000/660/private-content
 //    - [x] Een GET request krijgt altijd de url en het config object mee (waarin je request headers - de token! - meegeeft)
-//    - [ ] Bekijk de response. Als het succesvol was, plaats dan de response in de state
+//    - [x] Bekijk de response. Als het succesvol was, plaats dan de response in de state
 // - [ ] Geef de data weer op de pagina (inclusief impliciete check!)
 // - Puntjes op de i: error en laad-tijden inplemententeren (maar dit kun je inmiddels zelf!)
 
@@ -42,6 +42,9 @@ function Profile() {
             Authorization: `Bearer ${token}`,
           }
         });
+
+        console.log(result.data);
+        setPrivateContent(result.data);
       } catch(e) {
         console.error(e);
       }
