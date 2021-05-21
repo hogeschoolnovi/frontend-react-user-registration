@@ -5,12 +5,13 @@ import { AuthContext } from '../context/AuthContext';
 // STAPPENPLAN GEBRUIKERSDATA UIT CONTEXT HALEN (7)
 // - [x] Importeeer de useContext functie en AuthContext
 // - [x] Destucture daar het user object uit
-// - [ ] Log het user object
+// - [x] Log het user object
 // - [ ] Als er data is, geef die dan weer op de pagina (dus inclusief impliciete check!)
 
 function Profile() {
   const { user } = useContext(AuthContext);
-  
+  console.log(user); // geeft { user: { username: 'string waarde', email: 'string waarde', id: 'string waarde', country: 'string waarde' }
+
   return (
     <>
       <h1>Profielpagina</h1>
