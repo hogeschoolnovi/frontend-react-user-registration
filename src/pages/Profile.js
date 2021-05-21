@@ -6,7 +6,7 @@ import { AuthContext } from '../context/AuthContext';
 // - [x] Importeeer de useContext functie en AuthContext
 // - [x] Destucture daar het user object uit
 // - [x] Log het user object
-// - [ ] Als er data is, geef die dan weer op de pagina (dus inclusief impliciete check!)
+// - [x] Als er data is, geef die dan weer op de pagina (dus inclusief impliciete check!)
 
 function Profile() {
   const { user } = useContext(AuthContext);
@@ -17,8 +17,12 @@ function Profile() {
       <h1>Profielpagina</h1>
       <section>
         <h2>Gegevens</h2>
-        <p><strong>Gebruikersnaam:</strong> hardcoded-test</p>
-        <p><strong>Email:</strong> hardcoded@test.com</p>
+        {user &&
+          <>
+            <p><strong>Gebruikersnaam:</strong> {user.username}</p>
+            <p><strong>Email:</strong> {user.email}</p>
+          </>
+        }
       </section>
       <section>
         <h2>Afgeschermde content voor ingelogde gebruikers</h2>
