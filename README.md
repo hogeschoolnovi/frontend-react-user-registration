@@ -15,7 +15,7 @@ Je kunt deze nep-server [hier](https://github.com/hogeschoolnovi/frontend-fake-s
 ![screenshot](./src/assets/screenshot.png)
 
 ## De applicatie starten
-_Let op_: zorg eerst dat je de nep-server hebt draaien voor je deze applicatie start.
+**_Let op_: zorg eerst dat je de nep-server hebt draaien voor je deze applicatie start.**
 
 Als je het project gecloned hebt naar jouw locale machine, installeer je eerst de node_modules door het volgende commando in de terminal te runnen:
 
