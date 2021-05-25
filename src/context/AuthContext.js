@@ -29,7 +29,7 @@ function AuthContextProvider({ children }) {
   //    - [x] Maak een "nu" punt in JavaScript
   //    - [x] Zet deze JavaScript timestamp om naar een UNIX timestamp
   //    - [x] Trek deze data van elkaar af om te bepalen of de token nog geldig is
-  //    - [] Token nog geldig? Return true. Niet meer geldig? Return false.
+  //    - [x] Token nog geldig? Return true. Niet meer geldig? Return false.
   // - [ ] Wanneer blijkt dat de token geldig is, halen we de gebruikerdata opnieuw op:
   //    - [ ] Roep de bestaande functie fetchUserData aan en geef de token en id hieraan mee
   //    - [ ] In die functie hebben we al geimplementeerd dat de status op done komt te staan
@@ -46,6 +46,7 @@ function AuthContextProvider({ children }) {
     // Als er nog seconden over zijn wanneer we "nu" aftrekken van de expiratiedatum is hij nog geldig
     const isTokenStillValid = expirationUnix - currentUnix > 0;
 
+    return isTokenStillValid;
   }
 
   useEffect(() => {
