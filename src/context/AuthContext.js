@@ -21,9 +21,23 @@ function AuthContextProvider({ children }) {
 
   const history = useHistory();
 
+  // STAPPENPLAN PERSIST ON REFRESH (9)
+  // - [ ] Check of er een token in de local storage staat
+  // - [ ] Check of we gebruikersdata hebben. Geen gebruikersdata maar wel een token?
+  // - [ ] Schrijf een functie die checkt of de token nog geldig is:
+  //    - [ ] Decode de token en haal daar de expiratiedatum (UNIX timestamp) uit
+  //    - [ ] Maak een "nu" punt in JavaScript
+  //    - [ ] Zet deze JavaScript timestamp om naar een UNIX timestamp
+  //    - [ ] Trek deze data van elkaar af om te bepalen of de token nog geldig is
+  //    - [ ] Token nog geldig? Return true. Niet meer geldig? Return false.
+  // - [ ] Wanneer blijkt dat de token geldig is, halen we de gebruikerdata opnieuw op:
+  //    - [ ] Roep de bestaande functie fetchUserData aan en geef de token en id hieraan mee
+  //    - [ ] In die functie hebben we al geimplementeerd dat de status op done komt te staan
+  // - [ ] Geen gebruikersdata en ook geen geldige token? Dan zetten de we status op 'done'
+  // - Puntjes op de i: onze functie is een helperfunctie, dus die mag naar een apart mapje!
+
   useEffect(() => {
-    // hier gaan we later checken of er toevallig nog een ingelogde gebruiker is, zodat we opnieuw gegevens kunnen ophalen
-    // maar voor doen we dat niet, dus zetten we de status op 'done'
+
     setAuthState({
       user: null,
       status: 'done',
