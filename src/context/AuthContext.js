@@ -33,7 +33,7 @@ function AuthContextProvider({ children }) {
   // - [x] Wanneer blijkt dat de token geldig is, halen we de gebruikerdata opnieuw op:
   //    - [x] Roep de bestaande functie fetchUserData aan en geef de token en id hieraan mee
   //    - [x] In die functie hebben we al geimplementeerd dat de status op done komt te staan
-  // - [ ] Geen gebruikersdata en ook geen geldige token? Dan zetten de we status op 'done'
+  // - [x] Geen gebruikersdata en ook geen geldige token? Dan zetten de we status op 'done'
   // - Puntjes op de i: onze functie is een helperfunctie, dus die mag naar een apart mapje!
 
   function isTokenValid(jwtToken) {
@@ -54,13 +54,14 @@ function AuthContextProvider({ children }) {
 
     if(!authState.user && token && isTokenValid(token)) {
       const decodedToken = jwt_decode(token);
+      
       fetchUserData(token, decodedToken.sub);
+    } else {
+      setAuthState({
+        user: null,
+        status: 'done',
+      });
     }
-
-    setAuthState({
-      user: null,
-      status: 'done',
-    })
   }, []);
 
   // STAPPENPLAN CONTEXT LOGIN LOGICA (6)
