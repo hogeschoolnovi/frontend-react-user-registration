@@ -24,7 +24,7 @@ function AuthContextProvider({ children }) {
   // STAPPENPLAN PERSIST ON REFRESH (9)
   // - [x] Check of er een token in de local storage staat
   // - [x] Check of we gebruikersdata hebben. Geen gebruikersdata maar wel een token?
-  // - [ ] Schrijf een functie die checkt of de token nog geldig is:
+  // - [x] Schrijf een functie die checkt of de token nog geldig is:
   //    - [ ] Decode de token en haal daar de expiratiedatum (UNIX timestamp) uit
   //    - [ ] Maak een "nu" punt in JavaScript
   //    - [ ] Zet deze JavaScript timestamp om naar een UNIX timestamp
@@ -36,11 +36,15 @@ function AuthContextProvider({ children }) {
   // - [ ] Geen gebruikersdata en ook geen geldige token? Dan zetten de we status op 'done'
   // - Puntjes op de i: onze functie is een helperfunctie, dus die mag naar een apart mapje!
 
+  function isTokenValid(jwtToken) {
+    return true;
+  }
+
   useEffect(() => {
     const token = localStorage.getItem('token');
 
-    if(!authState.user && token) {
-      // is de token ook geldig?
+    if(!authState.user && token && isTokenValid(token)) {
+
     }
 
     setAuthState({
