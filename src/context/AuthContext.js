@@ -27,7 +27,7 @@ function AuthContextProvider({ children }) {
   // - [x] Schrijf een functie die checkt of de token nog geldig is:
   //    - [x] Decode de token en haal daar de expiratiedatum (UNIX timestamp) uit
   //    - [x] Maak een "nu" punt in JavaScript
-  //    - [ ] Zet deze JavaScript timestamp om naar een UNIX timestamp
+  //    - [x] Zet deze JavaScript timestamp om naar een UNIX timestamp
   //    - [ ] Trek deze data van elkaar af om te bepalen of de token nog geldig is
   //    - [ ] Token nog geldig? Return true. Niet meer geldig? Return false.
   // - [ ] Wanneer blijkt dat de token geldig is, halen we de gebruikerdata opnieuw op:
@@ -41,6 +41,7 @@ function AuthContextProvider({ children }) {
     const expirationUnix = decodedToken.exp; // let op: dit is een UNIX timestamp
 
     const now = new Date().getTime(); // dit is een javascript timestamp
+    const currentUnix = Math.round(now / 1000); // nu is het ook een UNIX timestamp
 
   }
 
