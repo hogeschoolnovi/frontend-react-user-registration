@@ -30,14 +30,14 @@ function AuthContextProvider({ children }) {
   //    - [x] Zet deze JavaScript timestamp om naar een UNIX timestamp
   //    - [x] Trek deze data van elkaar af om te bepalen of de token nog geldig is
   //    - [x] Token nog geldig? Return true. Niet meer geldig? Return false.
-  // - [ ] Wanneer blijkt dat de token geldig is, halen we de gebruikerdata opnieuw op:
-  //    - [ ] Roep de bestaande functie fetchUserData aan en geef de token en id hieraan mee
-  //    - [ ] In die functie hebben we al geimplementeerd dat de status op done komt te staan
+  // - [x] Wanneer blijkt dat de token geldig is, halen we de gebruikerdata opnieuw op:
+  //    - [x] Roep de bestaande functie fetchUserData aan en geef de token en id hieraan mee
+  //    - [x] In die functie hebben we al geimplementeerd dat de status op done komt te staan
   // - [ ] Geen gebruikersdata en ook geen geldige token? Dan zetten de we status op 'done'
   // - Puntjes op de i: onze functie is een helperfunctie, dus die mag naar een apart mapje!
 
   function isTokenValid(jwtToken) {
-    const decodedToken = jwt_decode(jwtToken);``
+    const decodedToken = jwt_decode(jwtToken);
     const expirationUnix = decodedToken.exp; // let op: dit is een UNIX timestamp
 
     const now = new Date().getTime(); // dit is een javascript timestamp
@@ -53,7 +53,8 @@ function AuthContextProvider({ children }) {
     const token = localStorage.getItem('token');
 
     if(!authState.user && token && isTokenValid(token)) {
-
+      const decodedToken = jwt_decode(token);
+      fetchUserData(token, decodedToken.sub);
     }
 
     setAuthState({
