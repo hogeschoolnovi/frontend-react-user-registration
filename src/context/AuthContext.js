@@ -25,7 +25,7 @@ function AuthContextProvider({ children }) {
   // - [x] Check of er een token in de local storage staat
   // - [x] Check of we gebruikersdata hebben. Geen gebruikersdata maar wel een token?
   // - [x] Schrijf een functie die checkt of de token nog geldig is:
-  //    - [ ] Decode de token en haal daar de expiratiedatum (UNIX timestamp) uit
+  //    - [x] Decode de token en haal daar de expiratiedatum (UNIX timestamp) uit
   //    - [ ] Maak een "nu" punt in JavaScript
   //    - [ ] Zet deze JavaScript timestamp om naar een UNIX timestamp
   //    - [ ] Trek deze data van elkaar af om te bepalen of de token nog geldig is
@@ -37,7 +37,9 @@ function AuthContextProvider({ children }) {
   // - Puntjes op de i: onze functie is een helperfunctie, dus die mag naar een apart mapje!
 
   function isTokenValid(jwtToken) {
-    return true;
+    const decodedToken = jwt_decode(jwtToken);``
+    const expirationUnix = decodedToken.exp; // let op: dit is een UNIX timestamp
+
   }
 
   useEffect(() => {
